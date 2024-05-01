@@ -2,9 +2,10 @@
   "name": "warmlist-sdk",
   "version": "1.0.0",
   "description": "warmlist sdk - consumme api",
-  "main": "index.js",
+  "main": "build/Sdk/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,8 @@
   },
   "dependencies": {
     "axios": "^1.6.8"
-  }
+  },
+  "files": [
+    "build/Sdk/index.js"
+  ]
 }

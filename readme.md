@@ -1,4 +1,4 @@
-#Warmlist
+# Warmlist api
 ```javascript
     const sdk = new Sdk(baseUrl, apikey);
 ```

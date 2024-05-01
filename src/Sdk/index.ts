@@ -7,7 +7,7 @@ export type GroupData = {
     id: string,
 }
 
-enum PostTemplate {
+export enum PostTemplate {
     a = 'CONTENT_A',
     b = 'CONTENT_B',
 }
@@ -35,6 +35,20 @@ export type PostData = {
     id: string,
     seen: boolean,
 }
+export type PostParams = {
+    "template": PostTemplate,
+    "summary": string,
+    "actorNavigationUrl": string,
+    "entityUrn": string,
+    "navigationUrl": string,
+}
+export type UserParams = {
+    "linkedinId": string;
+    "name": string;
+    "avatar": string;
+    "description": string;
+}
+
 export class Sdk {
     constructor(private baseUrl: string, private apikey: string) {}
     private async get(path: string): Promise<any> {
@@ -73,7 +87,7 @@ export class Sdk {
         const response = await this.get('api/user');
         return response.data;
     }
-    public async createUser(data: any): Promise<UserData> {
+    public async createUser(data: UserParams): Promise<UserData> {
         const response = await this.post('api/user', data);
         return response.data;
     }
@@ -81,7 +95,7 @@ export class Sdk {
         const response = await this.get('api/post');
         return response.data;
     }
-    public async createPost(data: any): Promise<PostData> {
+    public async createPost(data: PostParams): Promise<PostData> {
         const response = await this.post('api/post', data);
         return response.data;
     }
@@ -93,5 +107,9 @@ export class Sdk {
     }
     public async deletePost(postId: string): Promise<void> {
         await this.delete(`api/post/${postId}`);
+    }
+    public async getJob(): Promise<string> {
+        const response = await this.get('api/jobs');
+        return response.data;
     }
 }

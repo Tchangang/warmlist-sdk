@@ -24,3 +24,4 @@ Methods available
 - markPostAsSeen
 - deleteUser
 - deletePost
+- getJob

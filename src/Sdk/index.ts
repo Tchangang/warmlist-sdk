@@ -49,6 +49,28 @@ export type UserParams = {
     "description": string;
 }
 
+export class PublicSdk {
+    constructor(private baseUrl: string) {}
+    private async get(path: string): Promise<any> {
+        return axios.get(`${this.baseUrl}/${path}`);
+    }
+    async createAccount(email: string, password: string, linkedinUrl: string) {
+        const response = await axios.post(`${this.baseUrl}/public/create-customer`, {
+            email,
+            password,
+            linkedinUrl,
+        });
+        return {};
+    }
+    async login(email: string, password: string) {
+        const response = await axios.post(`${this.baseUrl}/public/login`, {
+            email,
+            password,
+        });
+        return new Sdk(this.baseUrl, response.data.apikey);
+    }
+}
+
 export class Sdk {
     constructor(private baseUrl: string, private apikey: string) {}
     private async get(path: string): Promise<any> {

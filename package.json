@@ -1,6 +1,6 @@
 {
   "name": "warmlist-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "warmlist sdk - consumme api",
   "main": "build/Sdk/index.js",
   "scripts": {

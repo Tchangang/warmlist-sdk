@@ -1,6 +1,6 @@
 {
   "name": "warmlist-sdk",
-  "version": "1.0.5",
+  "version": "1.0.4",
   "description": "warmlist sdk - consumme api",
   "main": "build/Sdk/index.js",
   "scripts": {
@@ -16,6 +16,8 @@
     "axios": "^1.6.8"
   },
   "files": [
-    "build/Sdk/index.js"
+    "build/Sdk/index.js",
+    "build/Sdk/index.d.ts",
+    "build/Sdk/index.d.ts.map"
   ]
 }

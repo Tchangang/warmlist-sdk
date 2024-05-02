@@ -35,6 +35,14 @@ export type PostData = {
     id: string,
     seen: boolean,
 }
+
+export type CustomerData = {
+    email: string,
+    linkedinUrl: string,
+    status: string,
+    createdAt: string,
+    apikey: string,
+}
 export type PostParams = {
     "template": PostTemplate,
     "summary": string,
@@ -100,6 +108,10 @@ export class Sdk {
                 apikey: this.apikey,
             }
         });
+    }
+    public async getMe(): Promise<CustomerData> {
+        const response = await this.get('api/me');
+        return response.data;
     }
     public async listGroup(): Promise<GroupData[]> {
         const response = await this.get('api/group');
